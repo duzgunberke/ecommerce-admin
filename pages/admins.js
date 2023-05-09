@@ -97,18 +97,19 @@ function AdminsPage({swal}) {
               </td>
             </tr>
           )}
-          {adminEmails.length > 0 && adminEmails.map(adminEmail => (
-            <tr>
-              <td>{adminEmail.email}</td>
-              <td>
-                {adminEmail.createdAt && prettyDate(adminEmail.createdAt)}
-              </td>
-              <td>
-                <button
-                  onClick={() => deleteAdmin(adminEmail._id, adminEmail.email)} className="btn-red">Delete</button>
-              </td>
-            </tr>
-          ))}
+       {adminEmails.length > 0 && adminEmails.map(adminEmail => (
+          <tr key={adminEmail._id}>
+            <td>{adminEmail.email}</td>
+            <td>
+              {adminEmail.createdAt && prettyDate(adminEmail.createdAt)}
+            </td>
+            <td>
+              <button
+                onClick={() => deleteAdmin(adminEmail._id, adminEmail.email)} className="btn-red">Delete</button>
+            </td>
+          </tr>
+        ))}
+
         </tbody>
       </table>
     </Layout>
